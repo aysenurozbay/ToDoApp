@@ -20,21 +20,34 @@ interface IHomeViewProps {}
 
 const HomeView: FC<IHomeViewProps> = () => {
   const [tasks, setTasks] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState({
+    id: 1,
+    toDo: '',
+  });
+  0;
 
-  const handleAddTask = newTask => {
-    console.log(tasks.some(year => year === newTask));
-
-    if (newTask) {
-      if (tasks.some(inputNew => inputNew === newTask)) {
-        Alert.alert('KENDİMLE ÜÇ SANİYE FELAN GURUR DUYMUŞTUM HALBUKİ');
-      } else {
-        setTasks([...tasks, newTask]);
+  const handleAddTask = input => {
+    const isTaskExist = tasks.find(function (post, index) {
+      if (post.toDo == input) {
+        return true;
       }
+    });
+
+    console.log(isTaskExist);
+
+    if (input && !isTaskExist) {
+      return setTasks([
+        ...tasks,
+        {
+          id: tasks.length + 1,
+          toDo: input,
+        },
+      ]);
     }
+    Alert.alert('There must be something wrong!');
   };
 
-  const renderItem = ({item}) => <ToDoCard task={item} />;
+  const renderItem = ({item}) => <ToDoCard task={item.toDo} id={item.id} />;
 
   return (
     <SafeAreaView style={styles.container}>

@@ -6,12 +6,16 @@ import CheckIcon from '../../assets/icons/CheckIcon';
 
 interface IToDoCardProps {
   task: any;
+  id: number;
 }
 
-const ToDoCard: FC<IToDoCardProps> = ({task}) => {
+const ToDoCard: FC<IToDoCardProps> = ({task, id}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.todoTitle}>{task}</Text>
+      <View style={styles.toDoContainer}>
+        <Text style={styles.todoId}>{id}</Text>
+        <Text style={styles.todoTitle}>{task}</Text>
+      </View>
       <View style={styles.iconContainer}>
         <CheckIcon fill="#2dc653" size={27} />
         <DeleteIcon fill="#d90429" size={30} />
@@ -33,6 +37,11 @@ const styles = StyleSheet.create({
   },
   todoTitle: {
     color: colors.black,
+    fontWeight: 'bold',
+    paddingHorizontal: 20,
+  },
+  todoId: {
+    color: colors.gray.default,
   },
   iconContainer: {
     width: 60,
@@ -40,6 +49,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  toDoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
 });
 
