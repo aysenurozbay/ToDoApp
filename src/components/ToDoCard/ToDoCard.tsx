@@ -1,23 +1,47 @@
-import {View, Text, StyleSheet} from 'react-native';
-import React, {FC} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {FC, useState} from 'react';
 import colors from '../../utils/colors';
 import DeleteIcon from '../../assets/icons/DeleteIcon';
 import CheckIcon from '../../assets/icons/CheckIcon';
+import {ToDoType} from '../../pages/HomeScreen/TodoType';
+import EmptyDotIcon from '../../assets/icons/EmptyDotIcon';
 
 interface IToDoCardProps {
-  task: any;
-  id: number;
+  // task: Array<ToDoType>;
+  task: ToDoType;
 }
 
-const ToDoCard: FC<IToDoCardProps> = ({task, id}) => {
+const ToDoCard: FC<IToDoCardProps> = ({task}) => {
+  // const [renderTask, setRenderTask] =
+  //   useState<Array<{id: string; toDo: string; isCompleted: boolean}>>();
+  // setRenderTask(...task);
+  const completeTask = () => {
+    // setRenderTask({
+    //   id: task.id,
+    //   toDo: task.toDo,
+    //   isCompleted: true,
+    // });
+    task.isCompleted = true;
+
+    console.log(task.isCompleted);
+  };
+
+  const deleteTask = () => {};
+
   return (
     <View style={styles.container}>
       <View style={styles.toDoContainer}>
-        <Text style={styles.todoId}>{id}</Text>
-        <Text style={styles.todoTitle}>{task}</Text>
+        <EmptyDotIcon fill={task.isCompleted ? '#2dc653' : '#d90429'} size={30} />
+
+        <Text style={task.isCompleted ? styles.completedTodoTitle : styles.notCompletedTodoTitle}>
+          {task.toDo}
+        </Text>
       </View>
+
       <View style={styles.iconContainer}>
-        <CheckIcon fill="#2dc653" size={27} />
+        <TouchableOpacity onPress={() => completeTask()}>
+          <CheckIcon fill="#2dc653" size={27} />
+        </TouchableOpacity>
         <DeleteIcon fill="#d90429" size={30} />
       </View>
     </View>
@@ -35,10 +59,18 @@ const styles = StyleSheet.create({
     padding: 5,
     paddingVertical: 10,
   },
-  todoTitle: {
+  notCompletedTodoTitle: {
     color: colors.black,
     fontWeight: 'bold',
     paddingHorizontal: 20,
+  },
+  completedTodoTitle: {
+    color: colors.black,
+    fontWeight: 'bold',
+    paddingHorizontal: 20,
+    textDecorationLine: 'line-through',
+    textDecorationStyle: 'solid',
+    textDecorationColor: '#000',
   },
   todoId: {
     color: colors.gray.default,
@@ -51,8 +83,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   toDoContainer: {
+    backgroundColor: colors.white,
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
 });
 

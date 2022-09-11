@@ -15,39 +15,34 @@ import NoteIcon from '../../assets/icons/noteIcon';
 import ToDoCard from '../../components/ToDoCard/ToDoCard';
 import colors from '../../utils/colors';
 import {metrics} from '../../utils/metrics';
+import {ToDoType} from './TodoType';
 
 interface IHomeViewProps {}
 
 const HomeView: FC<IHomeViewProps> = () => {
-  const [tasks, setTasks] = useState([]);
-  const [input, setInput] = useState({
-    id: 1,
-    toDo: '',
-  });
-  0;
+  const [tasks, setTasks] = useState<Array<{id: string; toDo: string; isCompleted: boolean}>>([]);
+  const [input, setInput] = useState<string>('');
 
-  const handleAddTask = input => {
-    const isTaskExist = tasks.find(function (post, index) {
-      if (post.toDo == input) {
-        return true;
-      }
-    });
+  const handleAddTask = (useInput: string) => {
+    // console.log(tasks);
 
-    console.log(isTaskExist);
+    const isTaskExist = tasks.find(post => post.toDo === useInput);
 
-    if (input && !isTaskExist) {
-      return setTasks([
+    if (!!input.length && !isTaskExist) {
+      setTasks([
         ...tasks,
         {
-          id: tasks.length + 1,
+          id: Math.random().toString(36).substr(2, 9),
           toDo: input,
+          isCompleted: false,
         },
       ]);
+      return;
     }
     Alert.alert('There must be something wrong!');
   };
 
-  const renderItem = ({item}) => <ToDoCard task={item.toDo} id={item.id} />;
+  const renderItem = ({item}: {item: ToDoType}) => <ToDoCard task={item} />;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -60,7 +55,6 @@ const HomeView: FC<IHomeViewProps> = () => {
         <TextInput
           style={styles.input}
           placeholder="Enter the ToDo and Hit the button"
-          value={input}
           onChangeText={text => setInput(text)}
         />
         <TouchableOpacity style={styles.button} onPress={() => handleAddTask(input)}>
