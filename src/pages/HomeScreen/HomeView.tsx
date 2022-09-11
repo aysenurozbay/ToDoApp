@@ -8,12 +8,10 @@ import {
   TouchableOpacity,
   Alert,
   FlatList,
-  ScrollView,
 } from 'react-native';
-
-import {fonts} from '../../assets/fonts';
 import NoteIcon from '../../assets/icons/noteIcon';
 import ToDoCard from '../../components/ToDoCard/ToDoCard';
+import {fonts} from '../../assets/fonts';
 import colors from '../../utils/colors';
 import {metrics} from '../../utils/metrics';
 import {ToDoType} from './TodoType';
@@ -73,7 +71,7 @@ const HomeView: FC<IHomeViewProps> = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>To-Do List </Text>
+        <Text style={styles.title}>ToDo List </Text>
       </View>
       <View style={styles.inputContainer}>
         <TextInput
@@ -124,6 +122,7 @@ const styles = StyleSheet.create({
     borderColor: colors.gray.borderGray,
     width: metrics.screenWidth - 75,
     borderRadius: 10,
+    fontFamily: fonts.eBGaramond,
   },
   button: {
     height: 40,

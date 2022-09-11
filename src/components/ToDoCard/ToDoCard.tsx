@@ -1,10 +1,11 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {FC} from 'react';
-import colors from '../../utils/colors';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import DeleteIcon from '../../assets/icons/DeleteIcon';
 import CheckIcon from '../../assets/icons/CheckIcon';
-import {ToDoType} from '../../pages/HomeScreen/TodoType';
 import EmptyDotIcon from '../../assets/icons/EmptyDotIcon';
+import {ToDoType} from '../../pages/HomeScreen/TodoType';
+import colors from '../../utils/colors';
+import {fonts} from '../../assets/fonts';
 
 interface IToDoCardProps {
   // task: Array<ToDoType>;
@@ -17,7 +18,11 @@ const ToDoCard: FC<IToDoCardProps> = ({task, deleteTask, setChecked}) => {
   return (
     <View style={styles.container}>
       <View style={styles.toDoContainer}>
-        <EmptyDotIcon fill={task.isCompleted ? '#54a72a' : '#d3081c'} size={30} />
+        {task.isCompleted ? (
+          <CheckIcon fill="#54a72a" size={27} />
+        ) : (
+          <EmptyDotIcon fill={'#54a72a'} size={30} />
+        )}
 
         <Text style={task.isCompleted ? styles.completedTodoTitle : styles.notCompletedTodoTitle}>
           {task.toDo}
@@ -52,19 +57,19 @@ const styles = StyleSheet.create({
   },
   notCompletedTodoTitle: {
     color: colors.black,
-    fontWeight: 'bold',
+
     paddingHorizontal: 20,
+    fontFamily: fonts.eBGaramond,
   },
   completedTodoTitle: {
     color: colors.black,
-    fontWeight: 'bold',
+
     paddingHorizontal: 30,
     textDecorationLine: 'line-through',
     textDecorationStyle: 'solid',
+    fontFamily: fonts.eBGaramond,
   },
-  todoId: {
-    color: colors.gray.default,
-  },
+
   iconContainer: {
     width: 60,
     backgroundColor: colors.white,

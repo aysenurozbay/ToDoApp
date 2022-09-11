@@ -1,4 +1,6 @@
 export const fonts = {
   eBGaramond: 'EBGaramond',
-  silkScreen: 'Silkscreen-Regular',
+  silkScreen: 'SilkscreenRegular',
+  qwitcher: 'QwitcherGrypenRegular',
+  qwitcherBold: 'QwitcherGrypenBold',
 };

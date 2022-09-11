@@ -14,6 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-ToDoAppWithState-ToDoAppWithStateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ToDoAppWithState-ToDoAppWithStateTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		1F2EA837BD3042D6983EAF85 /* EBGaramond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C76668AB99AB413883DC0745 /* EBGaramond.ttf */; };
+		4164E61D8C6148759F9B3B92 /* SilkscreenRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A87EAD7CE4C5477D884F634B /* SilkscreenRegular.ttf */; };
+		D68AA3C57C7C4A43B7FE1E3F /* QwitcherGrypenBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C8F5418AAF443EE9C664FAD /* QwitcherGrypenBold.ttf */; };
+		4653C3836171497C8E45793B /* QwitcherGrypenRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AE8591997134E7B8DC9ADA0 /* QwitcherGrypenRegular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ToDoAppWithState/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ToDoAppWithState-ToDoAppWithStateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoAppWithState-ToDoAppWithStateTests.release.xcconfig"; path = "Target Support Files/Pods-ToDoAppWithState-ToDoAppWithStateTests/Pods-ToDoAppWithState-ToDoAppWithStateTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		C76668AB99AB413883DC0745 /* EBGaramond.ttf */ = {isa = PBXFileReference; name = "EBGaramond.ttf"; path = "../src/utils/fonts/EBGaramond.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A87EAD7CE4C5477D884F634B /* SilkscreenRegular.ttf */ = {isa = PBXFileReference; name = "SilkscreenRegular.ttf"; path = "../src/utils/fonts/SilkscreenRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1C8F5418AAF443EE9C664FAD /* QwitcherGrypenBold.ttf */ = {isa = PBXFileReference; name = "QwitcherGrypenBold.ttf"; path = "../src/utils/fonts/QwitcherGrypenBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2AE8591997134E7B8DC9ADA0 /* QwitcherGrypenRegular.ttf */ = {isa = PBXFileReference; name = "QwitcherGrypenRegular.ttf"; path = "../src/utils/fonts/QwitcherGrypenRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				915A8771AD8F4CC2B3ABC5AB /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +156,18 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		915A8771AD8F4CC2B3ABC5AB /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				C76668AB99AB413883DC0745 /* EBGaramond.ttf */,
+				A87EAD7CE4C5477D884F634B /* SilkscreenRegular.ttf */,
+				1C8F5418AAF443EE9C664FAD /* QwitcherGrypenBold.ttf */,
+				2AE8591997134E7B8DC9ADA0 /* QwitcherGrypenRegular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +265,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				1F2EA837BD3042D6983EAF85 /* EBGaramond.ttf in Resources */,
+				4164E61D8C6148759F9B3B92 /* SilkscreenRegular.ttf in Resources */,
+				D68AA3C57C7C4A43B7FE1E3F /* QwitcherGrypenBold.ttf in Resources */,
+				4653C3836171497C8E45793B /* QwitcherGrypenRegular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

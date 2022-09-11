@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/utils/fonts/EBGaramond.ttf",
+      "sha1": "312f7f522ea6314ce68144a75f79717caabc2ec8"
+    },
+    {
+      "path": "src/utils/fonts/QwitcherGrypenBold.ttf",
+      "sha1": "5318ec9abdef40b79fa7300c518a65d5e2ab98c9"
+    },
+    {
+      "path": "src/utils/fonts/QwitcherGrypenRegular.ttf",
+      "sha1": "6ddf38271262d5c9efc7d209e78663df6c77ec1b"
+    },
+    {
+      "path": "src/utils/fonts/SilkscreenRegular.ttf",
+      "sha1": "7d19e39d6ae5b7677adc35f9be7eb26d87db667d"
+    }
+  ]
+}
