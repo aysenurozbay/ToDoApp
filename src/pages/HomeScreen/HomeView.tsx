@@ -23,41 +23,29 @@ const HomeView: FC<IHomeViewProps> = () => {
   const [input, setInput] = useState<string>('');
 
   const handleAddTask = (useInput: string) => {
-    // console.log(tasks);
-
     const isTaskExist = tasks.find(post => post.toDo === useInput);
 
-    if (!!input.length && !isTaskExist) {
-      setTasks([
+    if (!input.length && isTaskExist) return  Alert.alert('There must be something wrong!'); 
+      
+    const newTasks = [
         ...tasks,
         {
           id: Math.random().toString(36).substr(2, 9),
           toDo: input,
           isCompleted: false,
         },
-      ]);
-      return;
-    }
-    Alert.alert('There must be something wrong!');
+      ]
+    setTasks(newTasks);    
   };
+  
   const handleDeleteTodo = (id: string) => {
-    setTasks(
-      tasks.filter(todo => {
-        if (todo.id !== id) {
-          return true;
-        }
-      }),
-    );
+    const newTasks =  tasks.filter(todo => todo.id !== id)
+    setTasks(newTasks);
   };
+  
   const handleChecked = (id: string) => {
-    setTasks(
-      tasks.map(todo => {
-        if (todo.id === id) {
-          todo.isCompleted = !todo.isCompleted;
-        }
-        return todo;
-      }),
-    );
+    const newTasks =  tasks.filter(todo => todo.id === id)
+    setTasks(newTasks);
   };
 
   const renderItem = ({item}: {item: ToDoType}) => (
