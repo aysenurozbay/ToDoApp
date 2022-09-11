@@ -10,6 +10,8 @@ const colors = {
 
   black: 'black',
   blue: 'rgb(46, 134, 222)',
+
+  orange: '#ff7c1f',
 };
 
 export default colors;

@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Alert,
   FlatList,
+  ScrollView,
 } from 'react-native';
 
 import {fonts} from '../../assets/fonts';
@@ -41,16 +42,39 @@ const HomeView: FC<IHomeViewProps> = () => {
     }
     Alert.alert('There must be something wrong!');
   };
+  const handleDeleteTodo = (id: string) => {
+    setTasks(
+      tasks.filter(todo => {
+        if (todo.id !== id) {
+          return true;
+        }
+      }),
+    );
+  };
+  const handleChecked = (id: string) => {
+    setTasks(
+      tasks.map(todo => {
+        if (todo.id === id) {
+          todo.isCompleted = !todo.isCompleted;
+        }
+        return todo;
+      }),
+    );
+  };
 
-  const renderItem = ({item}: {item: ToDoType}) => <ToDoCard task={item} />;
+  const renderItem = ({item}: {item: ToDoType}) => (
+    <ToDoCard
+      task={item}
+      setChecked={() => handleChecked(item.id)}
+      deleteTask={() => handleDeleteTodo(item.id)}
+    />
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>To-Do List </Text>
-        {/* <Text style={styles.description}>Enter the ToDo and Hit the button</Text> */}
       </View>
-
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -58,7 +82,7 @@ const HomeView: FC<IHomeViewProps> = () => {
           onChangeText={text => setInput(text)}
         />
         <TouchableOpacity style={styles.button} onPress={() => handleAddTask(input)}>
-          <NoteIcon fill="#D65108" size={150} />
+          <NoteIcon fill="#ff7c1f" size={150} />
         </TouchableOpacity>
       </View>
 
@@ -70,20 +94,21 @@ const HomeView: FC<IHomeViewProps> = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {margin: 10},
+  container: {
+    flex: 1,
+    margin: 10,
+    flexDirection: 'column',
+  },
   titleContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
   title: {
-    color: '#D65108',
+    color: colors.orange,
     fontSize: 40,
     fontFamily: fonts.eBGaramond,
   },
-  description: {
-    color: '#adb5bd',
-    fontFamily: fonts.silkScreen,
-  },
+
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
